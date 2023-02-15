@@ -1,9 +1,5 @@
 print("JK loaded")
 
--- default tab size
---
---
-
 local set = vim.opt -- set options
 
 set.tabstop = 4
@@ -33,9 +29,6 @@ vim.keymap.set("n", "<leader>ev", ":Vex<CR>", {silent = true})
 vim.keymap.set("n", "<leader>tt", ":term ")
 
 vim.o.background = "light"
--- auto closing brackets
--- autocomplete
---
 
 vim.api.nvim_create_user_command('Jktest', function ()
   print("hello from jk test")
