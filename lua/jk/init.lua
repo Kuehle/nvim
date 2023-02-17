@@ -15,6 +15,7 @@ vim.opt.relativenumber = true
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 
+
 set.tabstop = 4
 set.softtabstop = 4
 set.shiftwidth = 4
@@ -41,7 +42,13 @@ vim.keymap.set("n", "<leader>ee", ":Ex<CR>", { silent = true })
 vim.keymap.set("n", "<leader>eh", ":Sex<CR>", { silent = true })
 vim.keymap.set("n", "<leader>ev", ":Vex<CR>", { silent = true })
 
+-- fix inline error handling
+vim.diagnostic.config({ virtual_text = false })
+vim.keymap.set("n", "gh", ":lua vim.diagnostic.open_float(0, {scope=\"line\"})<CR>",
+    { noremap = true, silent = true })
+
 vim.keymap.set("n", "<leader>tt", ":term ")
+
 
 vim.o.background = "light"
 
