@@ -42,6 +42,8 @@ vim.keymap.set("n", "<leader>ee", ":Ex<CR>", { silent = true })
 vim.keymap.set("n", "<leader>eh", ":Sex<CR>", { silent = true })
 vim.keymap.set("n", "<leader>ev", ":Vex<CR>", { silent = true })
 
+vim.keymap.set("n", "<leader>w", "<C-w>", { silent = true, noremap = true })
+
 -- fix inline error handling
 vim.diagnostic.config({ virtual_text = false })
 vim.keymap.set("n", "gh", ":lua vim.diagnostic.open_float(0, {scope=\"line\"})<CR>",
