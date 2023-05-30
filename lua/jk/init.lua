@@ -19,7 +19,7 @@ vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 set.tabstop = 4
 set.softtabstop = 4
 set.shiftwidth = 4
-set.autochdir = true
+-- set.autochdir = true
 set.relativenumber = true
 set.scrolloff = 8
 
@@ -43,6 +43,8 @@ vim.keymap.set("n", "<leader>eh", ":Sex<CR>", { silent = true })
 vim.keymap.set("n", "<leader>ev", ":Vex<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>w", "<C-w>", { silent = true, noremap = true })
+
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { silent = true })
 
 -- fix inline error handling
 vim.diagnostic.config({ virtual_text = false })
