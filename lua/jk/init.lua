@@ -12,9 +12,6 @@ vim.opt.relativenumber = true
 -- o transfers cursor to either side of the highlighting mode
 -- this allows you to Vi{ to select everything in the body of a function and then
 -- just extend the selection to include the function header
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
-
-
 
 set.tabstop = 4
 set.softtabstop = 4
@@ -25,15 +22,7 @@ set.scrolloff = 8
 
 vim.g.netrw_banner = false
 vim.g.netrw_liststyle = 3
---
--- vim.keymap.set("i", "\"", "\"\"<left>", { remap = false, silent = true })
--- vim.keymap.set("i", "'", "''<left>", { remap = false, silent = true })
--- vim.keymap.set("i", "(", "()<left>", { remap = false, silent = true })
--- vim.keymap.set("i", "[", "[]<left>", { remap = false, silent = true })
--- vim.keymap.set("i", "{", "{}<left>", { remap = false, silent = true })
--- vim.keymap.set("i", "{<CR>", "{<CR>}<ESC>O", { remap = false, silent = true })
--- vim.keymap.set("i", "{;<CR>", "{<CR>};<ESC>O", { remap = false, silent = true })
---
+
 vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { silent = true })
 vim.keymap.set("n", "<leader>bn", ":bNext<CR>", { silent = true })
 vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { silent = true })
