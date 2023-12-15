@@ -1,9 +1,11 @@
-print("JK loaded")
-
 local set = vim.opt -- set options
 
 vim.opt.laststatus = 3
 vim.opt.relativenumber = true
+
+vim.opt.shell = '/bin/bash'
+vim.g.rustfmt_command = '/Users/johanneskuehlewindt/.cargo/bin/rustfmt'
+vim.g.rustfmt_autosave = 1
 
 -- yiW yanks all the text between white space
 -- C-u C-d quickly move through the pages
@@ -40,11 +42,10 @@ vim.diagnostic.config({ virtual_text = false })
 vim.keymap.set("n", "gh", ":lua vim.diagnostic.open_float(0, {scope=\"line\"})<CR>",
     { noremap = true, silent = true })
 
-vim.keymap.set("n", "<leader>tt", ":term ")
+vim.keymap.set("n", "<leader>tt", ":term://zsh<CR>")
+vim.keymap.set("n", "<leader>tv", ":vsplit term://zsh<CR>")
+vim.keymap.set("n", "<leader>th", ":tabe term://zsh<CR>")
 
 
 vim.o.background = "light"
 
-vim.api.nvim_create_user_command('Jktest', function()
-    print("hello from jk test")
-end, {})
