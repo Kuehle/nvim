@@ -17,6 +17,10 @@ require('packer').startup(function(use)
 
   use 'jose-elias-alvarez/null-ls.nvim'
 
+  use 'leafOfTree/vim-svelte-plugin'
+
+  use 'luckasRanarison/tailwind-tools.nvim'
+
   use 'rust-lang/rust.vim'
 
   use { -- LSP Configuration & Plugins
@@ -168,6 +172,10 @@ require('lualine').setup {
     section_separators = '',
   },
 }
+
+require('tailwind-tools').setup({
+  
+})
 
 -- Enable Comment.nvim
 require('Comment').setup()
@@ -350,22 +358,20 @@ local servers = {
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-require("null-ls").setup({
-	on_attach = function(client, bufnr)
-		if client.supports_method("textDocument/formatting") then
-			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				group = augroup,
-				buffer = bufnr,
-				callback = function()
-					vim.lsp.buf.format()
-				end,
-			})
-		end
-	end,
-  sources = {
-    require("null-ls").builtins.formatting.prettier,
-  },
+local null_ls = require("null-ls")
+null_ls.setup({
+    sources = {
+        null_ls.builtins.formatting.rustfmt, 
+        null_ls.builtins.formatting.prettier,
+    },
+    on_attach = function(client, bufnr)
+        if client.supports_method("textDocument/formatting") then
+            vim.api.nvim_buf_set_option(bufnr, "formatexpr", "v:lua.vim.lsp.formatexpr()")
+            vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+        end
+        local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    end,
+    -- debug = true, -- Enable debug mode to help troubleshoot issues
 })
 
 -- Setup neovim lua configuration
