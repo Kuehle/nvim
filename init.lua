@@ -15,13 +15,18 @@ require('packer').startup(function(use)
     config = function() require("nvim-autopairs").setup {} end
   }
 
+
   use 'jose-elias-alvarez/null-ls.nvim'
+
+  use 'nvimtools/none-ls.nvim'
 
   use 'leafOfTree/vim-svelte-plugin'
 
   use 'luckasRanarison/tailwind-tools.nvim'
 
   use 'rust-lang/rust.vim'
+
+  use 'alaviss/nim.nvim'
 
   use { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -352,8 +357,7 @@ local servers = {
         command = "clippy",
       },
     },
-  },
-  tsserver = {},
+  }
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

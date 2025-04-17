@@ -48,3 +48,4 @@ vim.keymap.set("n", "<leader>th", ":9split term://zsh<CR><C-w><C-r>i")
 
 vim.o.background = "light"
 
+vim.opt.foldenable = false
