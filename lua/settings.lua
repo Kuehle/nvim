@@ -3,19 +3,23 @@ vim.g.maplocalleader = ' '
 
 local set = vim.opt -- set options
 
-vim.opt.laststatus = 3
-vim.opt.relativenumber = true
-vim.opt.number = true
+set.laststatus = 3
+set.relativenumber = true
+set.number = true
+set.numberwidth = 4
 
-vim.opt.shell = '/bin/zsh'
+set.shell = '/bin/zsh'
 vim.g.rustfmt_command = '/Users/johanneskuehlewindt/.cargo/bin/rustfmt'
 vim.g.rustfmt_autosave = 1
 
 set.tabstop = 4
 set.softtabstop = 4
 set.shiftwidth = 4
-set.relativenumber = true
+set.expandtab = true
+
 set.scrolloff = 8
+
+set.signcolumn = "yes"
 
 vim.g.netrw_banner = false
 vim.g.netrw_liststyle = 3
@@ -35,8 +39,7 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- fix inline error handling
 vim.diagnostic.config({ virtual_text = false })
 vim.keymap.set("n", "gh", ":lua vim.diagnostic.open_float(0, {scope=\"line\"})<CR>",
-    { noremap = true, silent = true })
+	{ noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>th", ":9split term://zsh<CR><C-w><C-r>i")
 vim.opt.foldenable = false
-
