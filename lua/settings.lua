@@ -1,5 +1,5 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 local set = vim.opt -- set options
 
@@ -8,8 +8,8 @@ set.relativenumber = true
 set.number = true
 set.numberwidth = 4
 
-set.shell = '/bin/zsh'
-vim.g.rustfmt_command = '/Users/johanneskuehlewindt/.cargo/bin/rustfmt'
+set.shell = "/bin/zsh"
+vim.g.rustfmt_command = "/Users/johanneskuehlewindt/.cargo/bin/rustfmt"
 vim.g.rustfmt_autosave = 1
 
 set.tabstop = 4
@@ -33,13 +33,14 @@ vim.keymap.set("n", "<leader>w", "<C-w>", { silent = true, noremap = true })
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { silent = true })
 
 -- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+vim.keymap.set("n", "<Esc>", ":noh<CR><Esc>", { silent = true })
 
 -- fix inline error handling
 vim.diagnostic.config({ virtual_text = false })
-vim.keymap.set("n", "gh", ":lua vim.diagnostic.open_float(0, {scope=\"line\"})<CR>",
-	{ noremap = true, silent = true })
+vim.keymap.set("n", "gh", ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>', { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>th", ":9split term://zsh<CR><C-w><C-r>i")
 vim.opt.foldenable = false
