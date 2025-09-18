@@ -15,9 +15,9 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-        dependencies = {
-            'hrsh7th/nvim-cmp'
-        },
+		dependencies = {
+			"hrsh7th/nvim-cmp",
+		},
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
@@ -28,12 +28,6 @@ return {
 
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
-			})
-			lspconfig.rust_analyzer.setup({
-				capabilities = capabilities,
-				settings = {
-					["rust-analyzer"] = {},
-				},
 			})
 
 			local nmap = function(keys, func, desc)
