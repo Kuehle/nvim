@@ -1,7 +1,7 @@
-return { 
-	'folke/tokyonight.nvim', 
+return {
+	"folke/tokyonight.nvim",
 	config = function()
-		vim.cmd.colorscheme "tokyonight-night"
-		vim.o.background = "dark"
-	end
+		vim.cmd.colorscheme("tokyonight-day")
+		vim.o.background = "light"
+	end,
 }
